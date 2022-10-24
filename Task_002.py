@@ -21,16 +21,22 @@
 # Var student
 import math
 
-def make_pairs_prodact():
-    try:
-        num_list = input('Введите число без пробелов: ')
-        num_list = [int(i) for i in num_list]           # разбивает число на список из цифр
-        pair_list = []
-        for i in range(math.ceil(len(num_list) / 2)):  # math.ceil - функция округления до целого в большую сторону
-            pair_prodact = num_list[i] * num_list[- 1 * (i + 1)]
-            pair_list.append(pair_prodact)
-        print('\033[36m{}{}{}'.format(num_list, ' -->', pair_list))
-    except ValueError:
-        print('\033[1m\033{}'.format('Вы ввели не число!'))
+# def make_pairs_prodact():
+#     try:
+#         num_list = input('Введите число без пробелов: ')
+#         num_list = [int(i) for i in num_list]           # разбивает число на список из цифр
+#         pair_list = []
+#         for i in range(math.ceil(len(num_list) / 2)):  # math.ceil - функция округления до целого в большую сторону
+#             pair_prodact = num_list[i] * num_list[- 1 * (i + 1)]
+#             pair_list.append(pair_prodact)
+#         print('\033[36m{}{}{}'.format(num_list, ' -->', pair_list))
+#     except ValueError:
+#         print('\033[1m\033{}'.format('Вы ввели не число!'))
 
-make_pairs_prodact()
+# make_pairs_prodact()
+
+# Var with Map and List Comprehension
+
+input_list = list(map(int, input("Введите список чисел разделённых пробелом: ").split()))
+prod_list = [(input_list[i]) * (input_list[len(input_list) -1 - i]) for i in range(len(input_list) // 2)]
+print(input_list, prod_list)
